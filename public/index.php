@@ -14,14 +14,14 @@ $cnpj = $argv[1];
 $consulta = (new ConsultaCNPJ($cnpj))->getCNPJ();
 
 // verifica o resultado
-if(empty($resultado)) {
+if(empty($consulta)) {
     die('Problemas ao consultar CNPJ');
 }
 
 // array de dados que quero no retorno
-$infoDesejadas = ['CNPJ', 'RAZAO SOCIAL', 'LOGRADOURO', 'NUMERO', 'COMPLEMENTO', 'CEP', 'BAIRRO'];
+$infoDesejadas = ['CNPJ', 'RAZAO SOCIAL', 'LOGRADOURO', 'NUMERO', 'COMPLEMENTO', 'BAIRRO', 'CEP', 'MUNICIPIO'];
 
 // imprime os dados
 foreach ($infoDesejadas as $chave){
-    echo $chave . " => " . $resultado[$chave] . PHP_EOL;
+    echo $chave . " => " . $consulta[$chave] . PHP_EOL;
 }
