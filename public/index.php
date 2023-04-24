@@ -18,6 +18,11 @@ if(empty($consulta)) {
     die('Problemas ao consultar CNPJ');
 }
 
+// interrope a execução caso o CNPJ não seja encontrado
+if(isset($consulta['error'])){
+    die($consulta['error']);
+}
+
 // array de dados que quero no retorno
 $infoDesejadas = ['CNPJ', 'RAZAO SOCIAL', 'LOGRADOURO', 'NUMERO', 'COMPLEMENTO', 'BAIRRO', 'CEP', 'MUNICIPIO'];
 
